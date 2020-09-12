@@ -1,0 +1,26 @@
+  iniciarSesion = () => {
+    this.setState({
+      errorPassword: false,
+      errorEmail: false
+    })
+
+    let esValido = true
+  
+    if (this.state.email === '') {
+      esValido = false
+      this.setState({
+        errorEmail: 'Completar email'
+      })
+    }
+
+    if(this.state.password === '') {
+      esValido = false
+      this.setState({
+        errorPassword: 'Completar contraseña'
+      })
+    }
+
+    if (!esValido) return
+
+    console.log('sesion iniciada')
+  }

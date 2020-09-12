@@ -1,0 +1,30 @@
+.input-master{
+  background-color: #F0F5F7;
+  outline: none;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  width: 100%;
+  height: 48px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  color: #515F66;
+  &:focus{
+    border: solid 1px #2FB7EC;
+  }
+  &::-webkit-input-placeholder{
+    color: #86A0AB;
+  }
+}
+.parrafo-input{
+  color: red;
+  padding-bottom: 5px;
+}
+.color-error{
+  border: 1px solid red;
+  &:focus{
+    border: 1px solid red;
+  }
+}
