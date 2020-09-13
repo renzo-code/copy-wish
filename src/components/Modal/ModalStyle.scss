@@ -1,0 +1,78 @@
+.c-wrapper-modal {
+  position: fixed;
+  animation: modal .2s;
+  display: none;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(55,48,48,.9);
+  z-index: 200;
+  animation: modal 0.2s;
+  padding: 15% auto;
+  & > .content-modal {
+    height: auto;
+    background-color: white;
+    border-radius: 15px;
+    padding: 35px 20px;
+    margin: 8% auto;
+  }
+  & > .big {
+    padding: 50px 35px;
+    width: 800px;
+  }
+  & > .middle {
+    padding: 35px 25px;
+    width: 470px;
+  }
+  & > .small {
+    width: 320px;
+    padding: 15px 5px;
+  }
+}
+
+@keyframes modal {
+  0% {
+    transform: scale(0.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.footer-modal {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+/*const Content = styled.div`
+  width: ${({ width }) => width || '50%' };
+  height: auto;
+  margin: 15% auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: ${({ padding }) => padding ? padding : '35px 20px'};
+  @media screen and (max-width : 800px){
+    margin-top: 30px;
+    padding: 10px;
+    width: 80%;
+  }
+`
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: ${({ justifyContent }) => justifyContent || 'space-between'};
+  width: 100%;
+  margin-top: 20px;
+  & > button:nth-child(1) {
+    margin: ${({ justifyContent }) => (justifyContent === 'flex-end' || justifyContent === 'flex-start') ? '0 30px 0 0' : '0' }
+  }
+`
+
+
+.footer-modal {
+
+}*/

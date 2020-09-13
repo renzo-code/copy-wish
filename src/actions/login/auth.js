@@ -21,7 +21,7 @@ export function success(data) {
   }
 }
 
-export function list(obj, page ='/login') {
+export function auth(obj, page ='/login') {
   return(dispatch) => {
     dispatch(loading(true))
     dispatch(error(null))
@@ -30,10 +30,15 @@ export function list(obj, page ='/login') {
       .then((data)=>{
         dispatch(loading(false))
         dispatch(success(data.reply))
+        localStorage.setItem('jwt', JSON.stringify(data.reply.token))
       })
       .catch((e)=> {
         dispatch(loading(false))
-        dispatch(error('Hubo un error'))
+        dispatch(error(e))
       })
   }
+}
+
+export function closeSession () {
+
 }

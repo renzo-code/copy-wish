@@ -33,7 +33,7 @@ export function list(obj, page = '/estado') {
     })
     .catch((e)=>{
       dispatch(loading(false))
-      dispatch(error('Huno un error'))
+      dispatch(error(e))
     })
   }
 }

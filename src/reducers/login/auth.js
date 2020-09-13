@@ -26,13 +26,13 @@ export function loading(state = false, action) {
   }
 }
 
-export function data(state = [], action) {
+export function data(state = {}, action) {
   switch (action.type) {
     case 'LOGIN_POST_SUCCESS':
       return action.data
     
     case 'LOGIN_POST_RESET':
-      return []
+      return {}
 
     default:
       return state

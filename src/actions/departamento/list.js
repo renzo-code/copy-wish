@@ -33,7 +33,7 @@ export function list(obj, page = '/departamento') {
       })
       .catch((e) => {
         dispatch(loading(false))
-        dispatch(error('Hubo un error'))
+        dispatch(error(e))
       })
   }
 }
