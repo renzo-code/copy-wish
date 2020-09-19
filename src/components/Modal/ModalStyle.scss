@@ -33,6 +33,22 @@
   }
 }
 
+.cancel{
+  font-size: 17px;
+  width: 150px;
+  color: #2FB7EC;
+  background-color: white;
+  border: solid #2FB7EC 1px;
+  &:hover{
+    background-color: white;
+  }
+}
+
+.hecho{
+  width: 150px;
+  font-size: 17px;
+}
+
 @keyframes modal {
   0% {
     transform: scale(0.1);
@@ -47,6 +63,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  margin-top: 10px;
 }
 /*const Content = styled.div`
   width: ${({ width }) => width || '50%' };

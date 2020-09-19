@@ -2,10 +2,10 @@ import { combineReducers } from 'redux'
 
 export function error(state = null, action) {
   switch (action.type) {
-    case 'LOGIN_POST_ERROR':
+    case 'DISTRITO_LIST_ERROR':
       return action.error
 
-    case 'LOGIN_POST_RESET':
+    case 'DISTRITO_LIST_RESET':
       return null
 
     default:
@@ -15,10 +15,10 @@ export function error(state = null, action) {
 
 export function loading(state = false, action) {
   switch (action.type) {
-    case 'LOGIN_POST_LOADING':
+    case 'DISTRITO_LIST_LOADING':
       return action.loading
 
-    case 'LOGIN_POST_RESET':
+    case 'DISTRITO_LIST_RESET':
       return false
 
     default:
@@ -26,21 +26,18 @@ export function loading(state = false, action) {
   }
 }
 
-export function data(state = {}, action) {
-  // console.log('action', action)
-  switch (action.type) {
-    case 'LOGIN_POST_SUCCESS':
-      console.log('action.type, ', action)
+export function data(state = [], action) {
+  switch(action.type) {
+    case 'DISTRITO_LIST_SUCCESS':
       return action.data
 
-    case 'LOGIN_POST_RESET':
-      return {}
+    case 'DISTRITO_LIST_RESET':
+      return []
 
     default:
       return state
   }
 }
-
 export default combineReducers({
   error, loading, data
 })

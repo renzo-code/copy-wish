@@ -4,18 +4,22 @@ import './InputStyle.scss'
 const Input = (props) => {
   return(
   <div>
-    {props.title && <h2>{props.title}</h2>}
+    {props.title && <h3 className="title-input" >{props.title}</h3>}
     <input
       onChange={props.onChange}
       className={` input-master ${props.error ? 'color-error' : ''} ${props.className}`}
       placeholder={props.placeholder}
-      type={props.type}
       value={props.value}
       name={props.name}
+      type={props.type}
+      min={props.min}
+      max={props.max}
     />
-    {props.error && <p className="parrafo-input">{props.error}</p>}
+    {props.error && props.textError && <p className="parrafo-input">{props.textError}</p>}
   </div>
   )
 }
 
 export default Input
+
+// const reg = /^[a-z]+$/i;

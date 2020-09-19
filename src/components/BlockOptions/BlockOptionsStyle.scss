@@ -1,0 +1,16 @@
+.option-1{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 50px;
+  font-size: 18px;
+  padding-left: 20px;
+  cursor: pointer;
+  &:hover{
+    background-color: #F0F5F7;
+  }
+}
+.icon-option-1{
+  margin-right: 10px;
+  font-size: 20px;
+}

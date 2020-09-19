@@ -2,23 +2,23 @@ import { combineReducers } from 'redux'
 
 export function error(state = null, action) {
   switch (action.type) {
-    case 'LOGIN_POST_ERROR':
+    case 'USUARIO_CREATE_ERROR':
       return action.error
 
-    case 'LOGIN_POST_RESET':
+    case 'USUARIO_CREATE_RESET': 
       return null
 
-    default:
+    default: 
       return state
   }
 }
 
 export function loading(state = false, action) {
   switch (action.type) {
-    case 'LOGIN_POST_LOADING':
+    case 'USUARIO_CREATE_LOADING':
       return action.loading
 
-    case 'LOGIN_POST_RESET':
+    case 'USUARIO_CREATE_RESET':
       return false
 
     default:
@@ -27,13 +27,11 @@ export function loading(state = false, action) {
 }
 
 export function data(state = {}, action) {
-  // console.log('action', action)
   switch (action.type) {
-    case 'LOGIN_POST_SUCCESS':
-      console.log('action.type, ', action)
+    case 'USUARIO_CREATE_SUCCESS':
       return action.data
 
-    case 'LOGIN_POST_RESET':
+    case 'USUARIO_CREATE_RESET':
       return {}
 
     default:

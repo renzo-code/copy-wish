@@ -1,7 +1,7 @@
 import { httpGet } from '../../utils/index'
 
 export function error(error) {
-  return {
+  return { 
     type: 'DEPARTAMENTO_LIST_ERROR',
     error,
   }
@@ -35,5 +35,11 @@ export function list(obj, page = '/departamento') {
         dispatch(loading(false))
         dispatch(error(e))
       })
+  }
+}
+
+export function reset(){
+  return {
+    type: 'DEPARTAMENTO_LIST_RESET'
   }
 }

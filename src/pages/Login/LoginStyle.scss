@@ -4,15 +4,14 @@
 }
 .img-productos{
   width: calc(100% - 500px);
-  height: 940px;
+  height: 100vh;
   background-color: greenyellow;
 }
 .formulario-wish{
   width: 500px;
-  height: 940px;
+  height: 100vh;
   padding: 200px 90px;
-  // margin-top: 10%;
-  
+  padding-top: 20%;
 }
 .logo-formulario{
   display: flex;

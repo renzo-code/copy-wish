@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
 import "./ModalStyle.scss";
-import "../Button/Button"
 import Button from "../Button/Button";
 
 const Modal = ({
@@ -58,6 +57,7 @@ const Modal = ({
             disabled={disabled}
             name={nameButton}
             onClick={onClick}
+            className="hecho"
           />
         </div>
       </div>

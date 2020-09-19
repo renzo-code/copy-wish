@@ -1,41 +1,45 @@
-import { httpPost } from '../../utils/index'
+import { httpGet } from '../../utils/index'
 
 export function error(error) {
   return {
-    type: 'LOGIN_POST_ERROR',
-    error,
+    type : 'PROVINCIA_LIST_ERROR',
+    error
   }
 }
 
 export function loading(loading) {
   return {
-    type: 'LOGIN_POST_LOADING',
+    type: 'PROVINCIA_LIST_LOADING',
     loading
   }
 }
 
 export function success(data) {
-  console.log('success', data)
-  return {
-    type: 'LOGIN_POST_SUCCESS',
+  return{
+    type : 'PROVINCIA_LIST_SUCCESS',
     data
   }
 }
 
-export function auth(obj, page ='/login') {
+export function list(id, page = '/provincia') {
   return(dispatch) => {
     dispatch(loading(true))
     dispatch(error(null))
 
-    httpPost(page, obj)
+    httpGet(page, id)
     .then((data)=>{
       dispatch(loading(false))
       dispatch(success(data.reply))
-      localStorage.setItem('jwt', JSON.stringify(data))
     })
-    .catch((e)=> {
+    .catch((e)=>{
       dispatch(loading(false))
       dispatch(error(e))
     })
+  }
+}
+
+export function reset() {
+  return{
+    type: 'PROVINCIA_LIST_RESET'
   }
 }

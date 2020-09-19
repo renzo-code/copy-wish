@@ -15,15 +15,20 @@
     border: solid 1px #2FB7EC;
   }
   &::-webkit-input-placeholder{
-    color: #86A0AB;
+    color: #515F66;
   }
 }
+.title-input{
+  font-family: 'Roboto', sans-serif;
+}
+
 .parrafo-input{
   color: red;
   padding-bottom: 5px;
 }
 .color-error{
   border: 1px solid red;
+  background-color: #ffeeee;
   &:focus{
     border: 1px solid red;
   }

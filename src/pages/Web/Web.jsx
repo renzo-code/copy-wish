@@ -6,6 +6,7 @@ import Local from './Local/Local'
 import Popular from './Popular/Popular'
 import Ofertas from './Ofertas/Ofertas'
 import Categoria from './Categoria/Categoria'
+import perfilUsuario from './perfilUsuario/perfilUsuario'
 
 
 const Pages = ({ logeado = false }) => {
@@ -26,6 +27,7 @@ const Pages = ({ logeado = false }) => {
         <Route path="/popular" component={Popular}/>
         <Route path="/ofertas" component={Ofertas}/>
         <Route path="/categoria" component={Categoria} />
+        <Route path="/perfil-usuario" component={perfilUsuario} />
       </Switch>
     </Layout>
   )

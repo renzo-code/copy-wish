@@ -22,15 +22,22 @@ class Login extends React.Component {
 
     datosTipo : {},
     dataEstado: {},
-  
+
     estadoModal: false,
   }
 
   componentDidMount() {
-    const { getDepartamento, getTipoUsuario, getEstado } = this.props
-    getDepartamento()
-    getTipoUsuario()
-    getEstado()
+    // const { getDepartamento, getTipoUsuario, getEstado } = this.props
+    // getDepartamento()
+    // getTipoUsuario()
+    // getEstado()
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { auth, history } = this.props
+    if(prevProps.auth !== auth) {
+      history.push(`/popular`)
+    }
   }
 
   inputChange = (e) => {
@@ -44,24 +51,32 @@ class Login extends React.Component {
       errorEmail : false,
       errorPassword : false
     })
-    
+
+    const { email, password } = this.state
+
     let esValido = true
-    
-    if(this.state.email === ''){
+
+    if(email === ''){
       esValido = false
       this.setState({
-        errorEmail : 'E-mail incorrecto.'
+        errorEmail : true
       })
     }
-    if(this.state.password === ''){
+    if(password === ''){
       esValido = false
       this.setState({
-        errorPassword : 'Contraseña incorrecta.'
+        errorPassword : true
       })
     }
+
+    const datosLogin = {
+      'email' : email,
+      'password' : password
+    }
+
     if(!esValido) return
-    // postLogin()
-    this.props.history.push(`/popular`)
+    this.props.postLogin(datosLogin)
+    
   }
 
   abrirModal = () => {
@@ -77,7 +92,7 @@ class Login extends React.Component {
   }
 
   render(){
-    console.log('datatipo',this.state.datosTipo)
+    // console.log('datatipo',this.state.datosTipo)
     console.log('props', this.props)
 
     return(
@@ -105,6 +120,7 @@ class Login extends React.Component {
               placeholder="Dirección de email"
               type="text"
               error={this.state.errorEmail}
+              textError="Email no puede ser vacío"
             />
             <Input
               onChange={this.inputChange}
@@ -113,12 +129,13 @@ class Login extends React.Component {
               placeholder="Contraseña"
               type="password"
               error={this.state.errorPassword}
+              textError="Contraseña incorrecta"
               />
             <div className="container-pregunta">
               <h4 className="pregunta">¿Olvidaste tu contraseña?</h4>
             </div>
             <Button
-              nameButton="Entrar"
+              name="Entrar"
               onClick={this.iniciarSesion}
               />
             <div className="container-parrafo">
@@ -131,29 +148,28 @@ class Login extends React.Component {
             </div>
           </div>
         </div>
-        <ModalRegistro 
-          onClick={this.abrirModal}
+        {this.state.estadoModal && <ModalRegistro
           onClose={this.cerrarModal}
           show={this.state.estadoModal}
-        />
+        />}
       </>
       )
     }
   }
 
 const mapStateToProps = (store) => ({
-  listDepartamento: store.departamento.list.data,
-  loadingListDepartamento: store.departamento.list.loading,
-  listTipoUsuario: store.tipoUsuario.list.data,
-  listEstado: store.estado.list.data,
-  auth: store
+  // listDepartamento: store.departamento.list.data,
+  // loadingListDepartamento: store.departamento.list.loading,
+  // listTipoUsuario: store.tipoUsuario.list.data,
+  // listEstado: store.estado.list.data,
+  auth: store.login.auth.data
 })
 
 const mapDispachToProps = (dispatch) => ({
-  getDepartamento: () => dispatch(listDepartamento()),
-  getTipoUsuario: () => dispatch(listTipoUsuario()),
-  getEstado: () => dispatch(listEstado()),
-  postLogin: () => dispatch(auth())
+  // getDepartamento: () => dispatch(listDepartamento()),
+  // getTipoUsuario: () => dispatch(listTipoUsuario()),
+  // getEstado: () => dispatch(listEstado()),
+  postLogin: (obj) => dispatch(auth(obj))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispachToProps)(Login))
