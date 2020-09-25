@@ -8,9 +8,9 @@ import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
 import ModalRegistro from './components/ModalRegistro'
 
-import { list as listDepartamento } from '../../actions/departamento/list'
-import { list as listTipoUsuario } from '../../actions/tipoUsuario/list'
-import { list as listEstado } from '../../actions/estado/list'
+// import { list as listDepartamento } from '../../actions/departamento/list'
+// import { list as listTipoUsuario } from '../../actions/tipoUsuario/list'
+// import { list as listEstado } from '../../actions/estado/list'
 import { auth } from '../../actions/login/auth'
 
 class Login extends React.Component {

@@ -7,6 +7,8 @@ import login from './login'
 import provincia from './provincia'
 import distrito from './distrito'
 import usuario from './usuario'
+import categoria from './categoria'
+
 
 
 export default combineReducers({
@@ -16,6 +18,7 @@ export default combineReducers({
   login,
   provincia,
   distrito,
-  usuario
+  usuario,
+  categoria
 })
 

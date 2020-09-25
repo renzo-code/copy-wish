@@ -2,37 +2,37 @@ import { combineReducers } from 'redux'
 
 export function error(state = null, action) {
   switch (action.type) {
-    case 'TIPO_USUARIO_LIST_ERROR':
+    case 'CATEGORIA_LIST_ERROR':
       return action.error
-    
-    case 'TIPO_USUARIO_LIST_RESET':
+
+    case 'CATEGORIA_LIST_RESET':
       return null
-    
-    default:
+
+    default: 
       return state
   }
 }
 
 export function loading(state = false, action) {
   switch (action.type) {
-    case 'TIPO_USUARIO_LIST_LOADING':
+    case 'CATEGORIA_LIST_LOADING':
       return action.type
-    
-    case 'TIPO_USUARIO_LIST_RESET':
+
+    case 'CATEGORIA_LIST_RESET':
       return false
 
-    default:
+    default: 
       return state
   }
 }
 
 export function data(state = [], action) {
   switch(action.type) {
-    case 'TIPO_USUARIO_LIST_SUCCESS' :
+    case 'CATEGORIA_LIST_SUCCESS':
       return action.data
 
-    case 'TIPO_USUARIO_LIST_RESET':
-      return[]
+    case 'CATEGORIA_LIST_RESET':
+      return []
 
     default:
       return state

@@ -8,7 +8,7 @@ import logo from '../../Images/logo.svg'
 import BlockOptions from '../../components/BlockOptions/BlockOptions'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faBell, faShoppingCart, faHeart, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faBell, faShoppingCart, faHeart, faHome, faCogs } from '@fortawesome/free-solid-svg-icons'
 import {  } from '@fortawesome/free-brands-svg-icons'
 
 const Header = () => {
@@ -43,14 +43,15 @@ const Header = () => {
                   </div>
                 </div>
                 <BlockOptions
-                  icon={faHome}
-                  texto="Option 1"
+                  icon={faCogs}
+                  to="/configuracion/categoria"
+                  titleLink="Configuración"
                 />
                 <BlockOptions
                   icon={faHome}
                   texto="Option 2"
                 />
-                <BlockOptions 
+                <BlockOptions
                   icon={faHome}
                   texto="Option 3"
                 />
