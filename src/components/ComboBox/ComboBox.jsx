@@ -4,13 +4,14 @@ import './ComboBoxStyle.scss'
 const ComboBox = (props) => {
   return(
     <>
-      <h2 className="title-combo-box">{props.title}</h2>
+      {props.title && <h2 className={`title-combo-box ${props.classNameTitle}`}>{props.title}</h2>}
       <select
         value={props.value}
         defaultValue={props.defaultValue}
         onChange={props.onChange}
         className={`combo-box ${props.error ? 'color-error' : ''} ${props.className}`}
         name={props.name}
+        disabled={props.disabled}
       >
         {
           [{id: 0 , description: props.placeholder}, ...props.options].map((obj, i)=>

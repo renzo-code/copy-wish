@@ -53,6 +53,7 @@ class Login extends React.Component {
     })
 
     const { email, password } = this.state
+    const { postLogin } = this.props
 
     let esValido = true
 
@@ -75,7 +76,7 @@ class Login extends React.Component {
     }
 
     if(!esValido) return
-    this.props.postLogin(datosLogin)
+    postLogin(datosLogin)
     
   }
 
@@ -94,6 +95,14 @@ class Login extends React.Component {
   render(){
     // console.log('datatipo',this.state.datosTipo)
     console.log('props', this.props)
+
+    const { 
+      email,
+      errorEmail,
+      password,
+      errorPassword,
+      estadoModal,
+    } = this.state
 
     return(
       <>
@@ -116,19 +125,19 @@ class Login extends React.Component {
             <Input
               onChange={this.inputChange}
               name="email"
-              value={this.state.email}
+              value={email}
               placeholder="Dirección de email"
               type="text"
-              error={this.state.errorEmail}
+              error={errorEmail}
               textError="Email no puede ser vacío"
             />
             <Input
               onChange={this.inputChange}
               name="password"
-              value={this.state.password}
+              value={password}
               placeholder="Contraseña"
               type="password"
-              error={this.state.errorPassword}
+              error={errorPassword}
               textError="Contraseña incorrecta"
               />
             <div className="container-pregunta">
@@ -148,15 +157,17 @@ class Login extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.estadoModal && <ModalRegistro
+        {
+          estadoModal && <ModalRegistro
           onClose={this.cerrarModal}
-          show={this.state.estadoModal}
-        />}
+          show={estadoModal}
+          />
+        }
       </>
       )
     }
   }
-
+// [LIST-CREATE-EDIT-SHOW-REMOVE]
 const mapStateToProps = (store) => ({
   // listDepartamento: store.departamento.list.data,
   // loadingListDepartamento: store.departamento.list.loading,
@@ -164,7 +175,7 @@ const mapStateToProps = (store) => ({
   // listEstado: store.estado.list.data,
   auth: store.login.auth.data
 })
-
+//[GET, POST, PUT, DELETE]
 const mapDispachToProps = (dispatch) => ({
   // getDepartamento: () => dispatch(listDepartamento()),
   // getTipoUsuario: () => dispatch(listTipoUsuario()),

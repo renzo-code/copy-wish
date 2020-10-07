@@ -9,13 +9,15 @@
   margin: auto;
   margin-top: 40px;
   margin-bottom: 40px;
-  background-color: blueviolet;
+  background-color: #505763;
   font-family: 'Poppins', sans-serif;
   font-size: 30px;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  letter-spacing: 2px;
 }
 .sidebar-configuracion{
   width: 250px;
@@ -25,8 +27,11 @@
   padding-top: 30px;
 }
 .contenido-configuracion{
+  display: flex;
+  justify-content: center;
   width: 100%;
   border: solid 1px #DEDFE0;
+  padding-top: 50px;
 }
 
 .cont-link-congifuracion{
@@ -38,7 +43,7 @@
   cursor: pointer;
   font-weight: bolder;
   &:hover{
-    background-color: #2FB7EC;
+    background-color: #8A92A3;
     transition: 0.2s;
   }
 }

@@ -56,8 +56,10 @@
   }
 }
 .perfil-link{
+  display: block;
   text-decoration: none;
   color: #007791;
+  width: 100%;
   &:hover{
     color: white;
   }

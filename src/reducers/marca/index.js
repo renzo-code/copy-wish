@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-import create from './create'
 import list from './list'
+import create from './create'
 import edit from './edit'
 
 export default combineReducers({
-  create,
   list,
+  create,
   edit
 })

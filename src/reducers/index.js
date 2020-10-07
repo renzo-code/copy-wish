@@ -8,6 +8,7 @@ import provincia from './provincia'
 import distrito from './distrito'
 import usuario from './usuario'
 import categoria from './categoria'
+import marca from './marca'
 
 
 
@@ -19,6 +20,6 @@ export default combineReducers({
   provincia,
   distrito,
   usuario,
-  categoria
+  categoria,
+  marca
 })
-

@@ -11,7 +11,7 @@ const Tabla = (props) => {
       >
         {
           props.dataCabecera.map((item, i) => {
-            return <div key={i} className="items" >{item}</div>
+            return <div key={i} className="items " >{item}</div>
           })
         }
       </div>

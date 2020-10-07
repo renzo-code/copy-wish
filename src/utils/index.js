@@ -3,8 +3,8 @@ import axios from 'axios'
 axios.defaults.baseURL = 'http://localhost:7000/q8sgi24cc3.execute-api/pe-south-1/v1'
 axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage.getItem('jwt')).token}`;
 
-export const httpGet = async (page, params) => {
-  const service = params ? `${page}/${params}` : page
+export const httpGet = async (page, id) => {
+  const service = id ? `${page}/${id}` : page
 
   try {
     if (page === '/login') {

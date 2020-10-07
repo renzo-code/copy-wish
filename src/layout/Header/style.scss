@@ -82,14 +82,19 @@
   font-weight: bold;
   font-size: 17px;
   padding-left: 10px;
+  padding-top: 10px;
 }
 .ver-perfil{
+  display: block;
+  width: 100%;
   font-weight: 100;
   font-size: 14px;
   text-align: center;
+  
 }
 .link-usuario{
   text-decoration: none;
+  color: #69747A;
 } 
 .separador{
   border: solid  1px #F0F5F7;
@@ -218,9 +223,16 @@
     }
   }
 }
+.bloque{
+  display: block;
+  width: 100%;
+}
 
 .title-item{
+  display: block;
+  width: 100%;
   text-decoration: none;
   color: #212529;
+
 }
 

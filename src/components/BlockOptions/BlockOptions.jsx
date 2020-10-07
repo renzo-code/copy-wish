@@ -13,7 +13,7 @@ const BlockOption = (props) => {
         <div className="icon-option-1">
           <FontAwesomeIcon icon={props.icon} />
         </div>
-          <Link className="link-configuracion" to={props.to}>
+          <Link className={`link-configuracion ${props.className}`} to={props.to}>
             {props.titleLink}
           </Link>
         {props.texto}

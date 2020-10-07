@@ -1,24 +1,24 @@
 import { combineReducers } from 'redux'
 
-export function error(state = null, action) {
-  switch (action.type) {
-    case 'ESTADO_LIST_ERROR':
-      return action.error
-    
-    case 'ESTADO_LIST_RESET':
+export function error( state = null, action){
+  switch(action.type){
+    case 'MARCA_LIST_ERROR':
+    return action.error
+
+    case 'MARCA_LIST_RESET':
       return null
 
-    default:
+      default:
         return state
   }
 }
 
 export function loading(state = false, action) {
   switch (action.type) {
-    case 'ESTADO_LIST_LOADING':
+    case 'MARCA_LIST_LOADING':
       return action.loading
 
-    case 'ESTADO_LIST_RESET':
+    case 'MARCA_LIST_RESET':
       return false
 
     default:
@@ -28,10 +28,10 @@ export function loading(state = false, action) {
 
 export function data(state = [], action) {
   switch(action.type) {
-    case 'ESTADO_LIST_SUCCESS':
+    case 'MARCA_LIST_SUCCESS':
       return action.data
 
-    case 'ESTADO_LIST_RESET':
+    case 'MARCA_LIST_RESET':
       return[]
 
     default:

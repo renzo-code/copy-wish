@@ -2,23 +2,23 @@ import { combineReducers } from 'redux'
 
 export function error(state = null, action) {
   switch (action.type) {
-    case 'ESTADO_LIST_ERROR':
+    case 'CATEGORIA_EDIT_ERROR':
       return action.error
-    
-    case 'ESTADO_LIST_RESET':
+
+    case 'CATEGORIA_EDIT_RESET':
       return null
 
     default:
-        return state
+      return state
   }
 }
 
 export function loading(state = false, action) {
-  switch (action.type) {
-    case 'ESTADO_LIST_LOADING':
+  switch(action.type) {
+    case 'CATEGORIA_EDIT_LOADING':
       return action.loading
 
-    case 'ESTADO_LIST_RESET':
+    case 'CATEGORIA_EDIT_RESET':
       return false
 
     default:
@@ -26,14 +26,14 @@ export function loading(state = false, action) {
   }
 }
 
-export function data(state = [], action) {
+export function data(state = {}, action) {
   switch(action.type) {
-    case 'ESTADO_LIST_SUCCESS':
+    case 'CATEGORIA_EDIT_SUCCESS':
       return action.data
 
-    case 'ESTADO_LIST_RESET':
-      return[]
-
+    case 'CATEGORIA_EDIT_RESET':
+      return{}
+      
     default:
       return state
   }

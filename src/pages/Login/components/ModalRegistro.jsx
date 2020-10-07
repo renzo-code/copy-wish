@@ -48,12 +48,14 @@ class ModalRegistro extends React.Component {
     newUsuario: {}
   }
 
+  //AL MONTAR EL COMPONENTE O VISTA
   componentDidMount(){
     const { getDepartamento } = this.props
     console.log('Montado')
     getDepartamento()
   }
 
+  //PARA GUARDAR Y ACTUALIZAR CAMBIOS DE PROPS A ESTADOS
   static getDerivedStateFromProps(nextProps, prevState) {
     if (!isEmpty(nextProps.listDepartamento) && nextProps.listDepartamento !== prevState.listDepartamento) {
       return {
@@ -73,26 +75,27 @@ class ModalRegistro extends React.Component {
     return null
   }
 
+    //
   componentDidUpdate(prevProps, prevState) {
     const { departamentoSeleccionado } = this.state
     if (prevState.departamentoSeleccionado !== departamentoSeleccionado) {
       this.cleanComboBox()
     }
   }
-
-  cleanComboBox = () => {
-    this.setState({
-      distritoSeleccionado: 0,
-      provinciaSeleccionada: 0,
-    })
-  }
-
+  
   componentWillUnmount() {
     console.log('Desmontado')
     const { resetDepartamento, resetProvincia, resetDistrito } = this.props
     resetDepartamento()
     resetProvincia()
     resetDistrito()
+  }
+  
+  cleanComboBox = () => {
+    this.setState({
+      distritoSeleccionado: 0,
+      provinciaSeleccionada: 0,
+    })
   }
 
   inputChange = (e) => {
@@ -134,13 +137,18 @@ class ModalRegistro extends React.Component {
       distritoSeleccionado
     } = this.state
 
+    const { 
+      createUsuario,
+      onClose
+    } = this.props
+
     if(datosNombre === '' || !expresionLetras.exec(datosNombre)){
       esValido = false
       this.setState({
         errorNombre : true
       })
     }
-    
+
     if(datosApellido === '' || !expresionLetras.exec(datosApellido)){
       esValido = false
       this.setState({
@@ -156,7 +164,7 @@ class ModalRegistro extends React.Component {
     }
 
     if(datosEmail === ''){
-      esValido = false 
+      esValido = false
       this.setState({
         errorEmail : true
       })
@@ -226,16 +234,48 @@ class ModalRegistro extends React.Component {
     }
 
     if(!esValido) return
-    this.props.createUsuario(datosRegistro)
-    this.props.onClose()
+    createUsuario(datosRegistro)
+    onClose()
   }
 
   render(){
     console.log('listProvincia', this.props)
     // console.log('datosNombre', this.state.datosNombre)
 
-    const { getProvincia, getDistrito } = this.props
-    const { listDepartamento, listProvincia, listDistrito } = this.state
+    const { 
+      getProvincia, 
+      getDistrito,
+      show,
+      onClose,
+    } = this.props
+    
+    const { 
+      listDepartamento, 
+      listProvincia, 
+      listDistrito,
+      datosNombre,
+      errorNombre,
+      datosApellido,
+      errorApellido,
+      datosTelefono,
+      errorTelefono,
+      datosEmail,
+      errorEmail,
+      datosPassword,
+      errorPassword,
+      fechaNacimiento,
+      errorFechaNacimiento,
+      datosDNI,
+      errorDNI,
+      departamentoSeleccionado,
+      errorDepartamento,
+      provinciaSeleccionada,
+      errorProvincias,
+      distritoSeleccionado,
+      errorDistrito,
+      datosDireccion,
+      errorDireccion
+    } = this.state
 
     const optionsDepartamento = listDepartamento.map((obj) => {
       return{
@@ -261,9 +301,9 @@ class ModalRegistro extends React.Component {
     return(
       <div>
         <Modal
-          show={this.props.show}
+          show={show}
           className="middle"
-          onClose={this.props.onClose}
+          onClose={onClose}
           nameButton="Registrar"
           onClick={this.validarUsuario}
         >
@@ -273,32 +313,32 @@ class ModalRegistro extends React.Component {
             placeholder="Nombres"
             onChange={this.inputChange}
             name="datosNombre"
-            value={this.state.datosNombre}
-            error={this.state.errorNombre}
+            value={datosNombre}
+            error={errorNombre}
           />
           <Input
             title="Escriba sus apellidos :"
             placeholder="Apellidos"
             onChange={this.inputChange}
             name="datosApellido"
-            value={this.state.datosApellido}
-            error={this.state.errorApellido}
+            value={datosApellido}
+            error={errorApellido}
           />
           <Input
             title="Numero de contacto :"
             placeholder="Telefono"
             onChange={this.inputChange}
             name="datosTelefono"
-            value={this.state.datosTelefono}
-            error={this.state.errorTelefono}
+            value={datosTelefono}
+            error={errorTelefono}
           />
           <Input
             title="Correo Electrónico :"
             placeholder="ejemplo@hotmail.com"
             onChange={this.inputChange}
             name="datosEmail"
-            value={this.state.datosEmail}
-            error={this.state.errorEmail}
+            value={datosEmail}
+            error={errorEmail}
           />
           <Input
             title="Cree su contraseña :"
@@ -306,8 +346,8 @@ class ModalRegistro extends React.Component {
             placeholder="Ingrese su nueva clave"
             onChange={this.inputChange}
             name="datosPassword"
-            value={this.state.datosPassword}
-            error={this.state.errorPassword}
+            value={datosPassword}
+            error={errorPassword}
           />
           <Input
             title="Fecha de nacimiento :"
@@ -316,16 +356,16 @@ class ModalRegistro extends React.Component {
             max="2021-01-01"
             onChange={this.inputChange}
             name="fechaNacimiento"
-            value={this.state.fechaNacimiento}
-            error={this.state.errorFechaNacimiento}
+            value={fechaNacimiento}
+            error={errorFechaNacimiento}
           />
           <Input
             title="DNI"
             placeholder="Nª de documento"
             onChange={this.inputChange}
             name="datosDNI"
-            value={this.state.datosDNI}
-            error={this.state.errorDNI}
+            value={datosDNI}
+            error={errorDNI}
           />
           <ComboBox
             onChange={(e) => {
@@ -334,11 +374,11 @@ class ModalRegistro extends React.Component {
               console.log('e.target.value',e.target.value)
             }}
             options={optionsDepartamento}
-            value={this.state.departamentoSeleccionado}
+            value={departamentoSeleccionado}
             name="departamentoSeleccionado"
             title="Departamento - Perú"
             placeholder="Seleccione su Departamento"
-            error={this.state.errorDepartamento}
+            error={errorDepartamento}
           />
           <ComboBox
             onChange={(e) => {
@@ -347,28 +387,28 @@ class ModalRegistro extends React.Component {
               console.log('e.target.value',e.target.value)
             }}
             options={optionsProvincia}
-            value={this.state.provinciaSeleccionada}
+            value={provinciaSeleccionada}
             name="provinciaSeleccionada"
             title="Provincias"
             placeholder="Seleccione su Provincia"
-            error={this.state.errorProvincias}
+            error={errorProvincias}
           />
           <ComboBox
             onChange={this.inputChange}
             options={optionsDistrito}
-            value={this.state.distritoSeleccionado}
+            value={distritoSeleccionado}
             name="distritoSeleccionado"
             title="Distritos"
             placeholder="Seleccione su distrito"
-            error={this.state.errorDistrito}
+            error={errorDistrito}
           />
           <Input
             title="Domicilio :"
             placeholder="Direccion"
             onChange={this.inputChange}
             name="datosDireccion"
-            value={this.state.datosDireccion}
-            error={this.state.errorDireccion}
+            value={datosDireccion}
+            error={errorDireccion}
           />
         </Modal>
       </div>
