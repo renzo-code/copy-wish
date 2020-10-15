@@ -3,7 +3,7 @@ import './InputStyle.scss'
 
 const Input = (props) => {
   return(
-  <div className="cont-input-master">
+  <div>
     {props.title && <h3 className={`title-input ${props.classNameTitle}`}>{props.title}</h3>}
     <input
       onChange={props.onChange}
@@ -14,6 +14,7 @@ const Input = (props) => {
       type={props.type}
       min={props.min}
       max={props.max}
+      disabled={props.disabled}
     />
     {props.error && props.textError && <p className="parrafo-input">{props.textError}</p>}
   </div>

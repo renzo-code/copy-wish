@@ -1,44 +1,39 @@
-import { httpPut } from '../../utils'
+import { httpGet } from '../../utils/index'
 
 export function error(error) {
-  return{
-    type: 'CATEGORIA_EDIT_ERROR',
+  return {
+    type: 'USUARIO_LIST_ERROR',
     error
   }
 }
 
 export function loading(loading) {
-  return{
-    type: 'CATEGORIA_EDIT_LOADING',
+  return {
+    type: 'USUARIO_LIST_LOADING',
     loading
   }
 }
 
 export function success(data) {
   return {
-    type: 'CATEGORIA_EDIT_SUCCESS',
+    type: 'USUARIO_LIST_SUCCESS',
     data
   }
 }
 
-export function edit(obj, page= '/categoria'){
+export function list(id, page = '/usuario') {
   return(dispatch) => {
     dispatch(loading(true))
     dispatch(error(null))
 
-    httpPut(page, obj)
+    httpGet(page, id)
     .then((data) => {
-      dispatch(loading(true))
+      dispatch(loading(false))
       dispatch(success(data.reply))
     })
     .catch((e) => {
       dispatch(loading(false))
       dispatch(error(e))
     })
-  }
-}
-export function reset() {
-  return{
-    type: 'CATEGORIA_EDIT_RESET'
   }
 }

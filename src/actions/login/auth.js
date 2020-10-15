@@ -29,9 +29,9 @@ export function auth(obj, page ='/login') {
 
     httpPost(page, obj)
     .then((data)=>{
+      localStorage.setItem('jwt', JSON.stringify(data))
       dispatch(loading(false))
       dispatch(success(data.reply))
-      localStorage.setItem('jwt', JSON.stringify(data))
     })
     .catch((e)=> {
       dispatch(loading(false))

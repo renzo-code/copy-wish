@@ -1,27 +1,27 @@
 import { httpPut } from '../../utils'
 
 export function error(error) {
-  return{
-    type: 'CATEGORIA_EDIT_ERROR',
+  return {
+    type: 'USUARIO_EDIT_ERROR',
     error
   }
 }
 
 export function loading(loading) {
-  return{
-    type: 'CATEGORIA_EDIT_LOADING',
+  return {
+    type: 'USUARIO_EDIT_LOADING',
     loading
   }
 }
 
 export function success(data) {
   return {
-    type: 'CATEGORIA_EDIT_SUCCESS',
+    type: 'USUARIO_EDIT_SUCCESS',
     data
   }
 }
 
-export function edit(obj, page= '/categoria'){
+export function edit(obj, page= '/usuario-info'){
   return(dispatch) => {
     dispatch(loading(true))
     dispatch(error(null))
@@ -35,10 +35,5 @@ export function edit(obj, page= '/categoria'){
       dispatch(loading(false))
       dispatch(error(e))
     })
-  }
-}
-export function reset() {
-  return{
-    type: 'CATEGORIA_EDIT_RESET'
   }
 }

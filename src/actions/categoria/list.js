@@ -38,3 +38,8 @@ export function list(obj,page = '/categoria') {
   }
 }
 
+export function reset(){
+  return{
+    type: 'CATEGORIA_LIST_RESET'
+  }
+}

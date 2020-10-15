@@ -8,9 +8,6 @@ import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
 import ModalRegistro from './components/ModalRegistro'
 
-// import { list as listDepartamento } from '../../actions/departamento/list'
-// import { list as listTipoUsuario } from '../../actions/tipoUsuario/list'
-// import { list as listEstado } from '../../actions/estado/list'
 import { auth } from '../../actions/login/auth'
 
 class Login extends React.Component {
@@ -26,14 +23,7 @@ class Login extends React.Component {
     estadoModal: false,
   }
 
-  componentDidMount() {
-    // const { getDepartamento, getTipoUsuario, getEstado } = this.props
-    // getDepartamento()
-    // getTipoUsuario()
-    // getEstado()
-  }
-
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     const { auth, history } = this.props
     if(prevProps.auth !== auth) {
       history.push(`/popular`)
@@ -93,7 +83,6 @@ class Login extends React.Component {
   }
 
   render(){
-    // console.log('datatipo',this.state.datosTipo)
     console.log('props', this.props)
 
     const { 
@@ -169,17 +158,10 @@ class Login extends React.Component {
   }
 // [LIST-CREATE-EDIT-SHOW-REMOVE]
 const mapStateToProps = (store) => ({
-  // listDepartamento: store.departamento.list.data,
-  // loadingListDepartamento: store.departamento.list.loading,
-  // listTipoUsuario: store.tipoUsuario.list.data,
-  // listEstado: store.estado.list.data,
   auth: store.login.auth.data
 })
 //[GET, POST, PUT, DELETE]
 const mapDispachToProps = (dispatch) => ({
-  // getDepartamento: () => dispatch(listDepartamento()),
-  // getTipoUsuario: () => dispatch(listTipoUsuario()),
-  // getEstado: () => dispatch(listEstado()),
   postLogin: (obj) => dispatch(auth(obj))
 })
 

@@ -61,7 +61,7 @@ class MarcaConfiguracion extends React.Component{
   }
 
   render(){
-    console.log('objEditarMarca', this.state.objEditarMarca)
+    // console.log('objEditarMarca', this.state.objEditarMarca)
     // console.log('getMarca', this.props.getMarca)
     
       const { obtenerCategoria, getMarca } = this.props

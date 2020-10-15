@@ -78,7 +78,13 @@ class ModalRegistro extends React.Component {
     //
   componentDidUpdate(prevProps, prevState) {
     const { departamentoSeleccionado } = this.state
-    if (prevState.departamentoSeleccionado !== departamentoSeleccionado) {
+    const { onClose, postUsuario } = this.props
+
+    if(prevProps.postUsuario !== postUsuario ){
+      console.log('postUsuario')
+      onClose()
+    }
+    if(prevState.departamentoSeleccionado !== departamentoSeleccionado) {
       this.cleanComboBox()
     }
   }
@@ -138,8 +144,7 @@ class ModalRegistro extends React.Component {
     } = this.state
 
     const { 
-      createUsuario,
-      onClose
+      createUsuario
     } = this.props
 
     if(datosNombre === '' || !expresionLetras.exec(datosNombre)){
@@ -235,11 +240,10 @@ class ModalRegistro extends React.Component {
 
     if(!esValido) return
     createUsuario(datosRegistro)
-    onClose()
   }
 
   render(){
-    console.log('listProvincia', this.props)
+    console.log('postUsuario', this.props.postUsuario)
     // console.log('datosNombre', this.state.datosNombre)
 
     const { 
@@ -248,8 +252,8 @@ class ModalRegistro extends React.Component {
       show,
       onClose,
     } = this.props
-    
-    const { 
+
+    const {
       listDepartamento, 
       listProvincia, 
       listDistrito,
@@ -421,7 +425,7 @@ const mapStateToProps = (store) => ({
   listDepartamento: store.departamento.list.data,
   listProvincia: store.provincia.list.data,
   listDistrito: store.distrito.list.data,
-  postUsuario: store.usuario.create
+  postUsuario: store.usuario.create.data
 })
 
 const mapDispatchToProps = (dispatch) => ({

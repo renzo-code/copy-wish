@@ -98,7 +98,7 @@ class ModalMarca extends React.Component {
         errorMarca: true
       })
     }
-    
+
     if(selectedCategoriaMarca === 0){
       esValido = false
       this.setState({
@@ -114,7 +114,7 @@ class ModalMarca extends React.Component {
         })
       }
     }
-    
+
     if (!esValido) return
 
     const datosNuevaMarca = {
@@ -201,9 +201,9 @@ class ModalMarca extends React.Component {
             value={selectedCategoriaMarca}
             error={errorCategoriaMarca}
             disabled={!isEmpty(objEditarMarca)}
-          /> 
+          />
           {
-            !isEmpty(objEditarMarca) && 
+            !isEmpty(objEditarMarca) &&
             (<ComboBox
               options={optionsEstado}
               className="input-categoria"

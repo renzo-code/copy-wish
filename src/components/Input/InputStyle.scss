@@ -18,8 +18,10 @@
     color: #515F66;
   }
 }
+
 .title-input{
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 10px;
 }
 
 .parrafo-input{
@@ -32,10 +34,4 @@
   &:focus{
     border: 1px solid red;
   }
-}
-.cont-input-master{
-  // text-align: center;
-  // width: 400px;
-  // display: flex;
-  // justify-content: center;
 }

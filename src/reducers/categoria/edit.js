@@ -32,7 +32,7 @@ export function data(state = {}, action) {
       return action.data
 
     case 'CATEGORIA_EDIT_RESET':
-      return{}
+      return {}
       
     default:
       return state

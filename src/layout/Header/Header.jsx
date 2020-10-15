@@ -23,9 +23,7 @@ class Header extends React.Component {
 
   render(){
     const localObj = JSON.parse(localStorage.getItem("jwt"))
-  // console.log('localObj',localObj.token)
     const decode = jwt_decode(localObj.token)
-    console.log('props', this.props)
 
     return(
     <div className="master-header">

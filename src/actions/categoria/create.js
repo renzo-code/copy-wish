@@ -37,3 +37,9 @@ export function create(obj, page = '/categoria') {
       })
   }
 }
+
+export function reset(){
+  return{
+    type: 'CATEGORIA_CREATE_RESET'
+  }
+}
