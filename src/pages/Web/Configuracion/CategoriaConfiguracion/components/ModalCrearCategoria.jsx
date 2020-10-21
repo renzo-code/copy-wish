@@ -15,11 +15,11 @@ import './ModalCrearCategoria.scss'
 class ModalCrearCategoria extends React.Component {
   state= {
     datosNuevaCategoria : '',
+    selectedEstadoCategoria: 0,
 
     errorCategoria: false ,
     errorEstadoCategoria: false ,
 
-    selectedEstadoCategoria: 0
   }
 
   componentDidMount(){

@@ -103,7 +103,7 @@ class MarcaConfiguracion extends React.Component{
                 <div
                   className="cont-items-listar"
                   key={i}
-                  style={{ gridTemplateColumns: "50px 150px 100px 130px 70px" }}
+                  style={{ gridTemplateColumns: "50px 150px 100px 130px 70px"}}
                 >
                   <div className="items-listar">{item.id_marca}</div>
                   <div className="items-listar">{item.marca}</div>

@@ -37,9 +37,9 @@ export const httpPost = async (page, params) => {
   }
 }
 
-export const httpPut = async (page, params) => {
+export const httpPut = async (page, data) => {
   try {
-    const response = await axios.put(page, params)
+    const response = await axios.put(page, data)
 
     return response.data
   } catch (error) {

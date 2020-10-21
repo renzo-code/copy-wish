@@ -9,11 +9,11 @@ import {  } from '@fortawesome/free-brands-svg-icons'
 const BlockOption = (props) => {
   return(
     <>
-      <div className="option-1">
+      <div className={`option-1 ${props.classNameCont}`}>
         <div className="icon-option-1">
           <FontAwesomeIcon icon={props.icon} />
         </div>
-          <Link className={`link-configuracion ${props.className}`} to={props.to}>
+          <Link className={`link-configuracion ${props.className}`} to={props.to} >
             {props.titleLink}
           </Link>
         {props.texto}

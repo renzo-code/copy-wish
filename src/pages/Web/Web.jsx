@@ -8,6 +8,7 @@
   import Categoria from './Categoria/Categoria'
   import PerfilUsuario from './PerfilUsuario'
   import LayoutConfiguracion from './Configuracion'
+  import LayoutMetodosDePago from './Pagos'
 
 
   const Pages = ({ logeado = false }) => {
@@ -30,6 +31,7 @@
           <Route path="/categoria" component={Categoria} />
           <Route path="/perfil-usuario" component={PerfilUsuario} />
           <Route path="/configuracion" component={LayoutConfiguracion} />
+          <Route path="/metodo-pago" component={LayoutMetodosDePago} />
         </Switch>
       </Layout>
     )

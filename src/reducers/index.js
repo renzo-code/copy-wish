@@ -9,17 +9,21 @@ import distrito from './distrito'
 import usuario from './usuario'
 import categoria from './categoria'
 import marca from './marca'
+import fotoPerfil from './fotoPerfil'
+import pagoTarjeta from './pagoTarjeta'
 
 
 
 export default combineReducers({
   departamento,
-  tipoUsuario, 
-  estado, 
+  tipoUsuario,
+  estado,
   login,
   provincia,
   distrito,
   usuario,
   categoria,
-  marca
+  marca,
+  fotoPerfil,
+  pagoTarjeta
 })

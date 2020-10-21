@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 
 export function error(state = null, action) {
-  switch (action.type){
-    case 'USUARIO_LIST_ERROR':
+  switch (action.error) {
+    case 'FOTO_PERFIL_CREATE_ERROR':
       return action.error
 
-    case 'USUARIO_LIST_RESET':
-      return false
+    case 'FOTO_PERFIL_CREATE_RESET':
+      return null
 
     default:
       return state
@@ -15,10 +15,10 @@ export function error(state = null, action) {
 
 export function loading(state = false, action) {
   switch (action.type) {
-    case 'USUARIO_LIST_LOADING':
+    case 'FOTO_PERFIL_CREATE_LOADING':
       return action.loading
 
-    case 'USUARIO_LIST_RESET':
+    case 'FOTO_PERFIL_CREATE_RESET':
       return false
 
     default:
@@ -26,15 +26,15 @@ export function loading(state = false, action) {
   }
 }
 
-export function data(state = [], action) {
-  switch(action.type) {
-    case 'USUARIO_LIST_SUCCESS':
+export function data(state = {}, action) {
+  switch (action.type) {
+    case 'FOTO_PERFIL_CREATE_SUCCESS':
       return action.data
 
-    case 'USUARIO_LIST_RESET':
-      return[]
+    case 'FOTO_PERFIL_CREATE_RESET':
+      return {}
 
-    default: 
+    default:
       return state
   }
 }

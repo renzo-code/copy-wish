@@ -61,7 +61,8 @@ class Header extends React.Component {
               />
               <BlockOptions
                 icon={faHome}
-                titleLink="Option 2"
+                to="/metodo-pago"
+                titleLink="Métodos de pago"
               />
               <BlockOptions
                 icon={faHome}

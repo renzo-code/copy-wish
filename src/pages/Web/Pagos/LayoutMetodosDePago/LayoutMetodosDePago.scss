@@ -1,0 +1,38 @@
+.borde-titulo-pagina {
+  width: 100%;
+  height: 100px;
+  background-color: #505763;
+  margin-top: 40px;
+}
+.titulo-pagina{
+  text-align: center;
+  padding-top: 30px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  font-size: 30px;
+}
+
+.container-master{
+  display: flex;
+  border: solid 1px #DEDFE0;
+  width: 80%;
+  margin: 50px auto;
+}
+
+.cont-sidebar{
+  border-right: solid 1px #DEDFE0;
+  height: 50vh;
+  width: 20%;
+}
+.opcion-tarjeta{
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+.cont-opcion-tarjeta{
+  height: 30px;
+}
+.cont-cuerpo{
+  width: 100%;
+  height: 100%;
+}

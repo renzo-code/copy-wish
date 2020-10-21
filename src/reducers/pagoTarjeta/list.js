@@ -2,10 +2,10 @@ import { combineReducers } from 'redux'
 
 export function error(state = null, action) {
   switch (action.type){
-    case 'USUARIO_LIST_ERROR':
+    case 'PAGO_TARJETA_LIST_ERROR':
       return action.error
 
-    case 'USUARIO_LIST_RESET':
+    case 'PAGO_TARJETA_LIST_RESET':
       return false
 
     default:
@@ -15,10 +15,10 @@ export function error(state = null, action) {
 
 export function loading(state = false, action) {
   switch (action.type) {
-    case 'USUARIO_LIST_LOADING':
+    case 'PAGO_TARJETA_LIST_LOADING':
       return action.loading
 
-    case 'USUARIO_LIST_RESET':
+    case 'PAGO_TARJETA_LIST_RESET':
       return false
 
     default:
@@ -28,13 +28,13 @@ export function loading(state = false, action) {
 
 export function data(state = [], action) {
   switch(action.type) {
-    case 'USUARIO_LIST_SUCCESS':
+    case 'PAGO_TARJETA_LIST_SUCCESS':
       return action.data
 
-    case 'USUARIO_LIST_RESET':
-      return[]
+    case 'PAGO_TARJETA_LIST_RESET':
+      return []
 
-    default: 
+    default:
       return state
   }
 }

@@ -75,7 +75,6 @@ class ModalRegistro extends React.Component {
     return null
   }
 
-    //
   componentDidUpdate(prevProps, prevState) {
     const { departamentoSeleccionado } = this.state
     const { onClose, postUsuario } = this.props

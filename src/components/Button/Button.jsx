@@ -4,7 +4,7 @@ import './ButtonStyle.scss'
 const Button = (props) =>{
   return(
     <>
-      <h2>{props.title}</h2>
+      { props.title && <h2>{props.title}</h2>}
       <button
         onClick={props.onClick}
         className={`button-master ${props.className}`}

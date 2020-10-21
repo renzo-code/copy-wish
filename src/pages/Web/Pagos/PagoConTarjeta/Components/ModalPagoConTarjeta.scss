@@ -1,0 +1,37 @@
+.container-modal-tarjeta{
+  width: 500px;
+  height: 270px;
+  border-radius: 20px;
+  background-color: red;
+  margin: auto;
+  position: relative;
+}
+.input-nro-tarjeta{
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
+  width: 400px;
+  height: 40px;
+}
+.fecha-vencimiento-tarjeta{
+  position: absolute;
+  right: 100px;
+  bottom: 30px;
+  width: 130px;
+  height: 40px;
+}
+.cvc-tarjeta{
+  position: absolute;
+  bottom: 30px;
+  left: 100px;
+  width: 80px;
+  height: 40px;
+}
+.btn-mostrar-cvc{
+  position: absolute;
+  bottom: 48px;
+  left: 190px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+}
