@@ -13,8 +13,7 @@ import { edit as editarUsuario } from '../../../../actions/usuario/edit'
 
 import './PerfilUsuarioStyle.scss'
 
-const localObjName = JSON.parse(localStorage.getItem("jwt"))
-// console.log('localObjName',localObjName.reply)
+const localObjName = JSON.parse(localStorage.getItem("jwt")) || { reply : {} }
 
 class PerfilUsuario extends React.Component {
   state={

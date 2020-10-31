@@ -3,6 +3,7 @@ import './style.scss'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import jwt_decode from "jwt-decode"
+import { isEmpty } from 'lodash'
 
 import InputSearch from '../../components/InputSearch/InputSearch'
 import logo from '../../Images/logo.svg'
@@ -26,10 +27,14 @@ class Header extends React.Component {
     history.push(`/perfil-usuario`)
   }
 
+  exitApp = () => {
+    localStorage.removeItem('jwt')
+    this.props.history.push('/login')
+  }
 
   render(){
-    const localObj = JSON.parse(localStorage.getItem("jwt"))
-    const decode = jwt_decode(localObj.token)
+    const localObj = JSON.parse(localStorage.getItem("jwt")) || {}
+    const decode = !isEmpty(localObj) ? jwt_decode(localObj.token) : {}
 
     return(
     <div className="master-header">
@@ -53,7 +58,7 @@ class Header extends React.Component {
                   <FontAwesomeIcon icon={faUser} />
                 </div>
                 <div className="nombres-apellidos">
-                  { decode.nombres } { decode.apellidos }
+                  { decode?.nombres } { decode?.apellidos }
                   <div className="ver-perfil">
                     Ver el perfil
                   </div>
@@ -99,7 +104,7 @@ class Header extends React.Component {
                 titleLink="Option 8"
               />
               <hr className="separador"/>
-              <div className="salir">
+              <div className="salir" onClick={this.exitApp}>
                 Salir
               </div>
             </div>

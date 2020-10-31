@@ -12,6 +12,7 @@ const Modal = ({
   hideButtonCancel = false,
   className,
   disabled,
+  height
 }) => {
   const refModal = useRef();
 
@@ -42,7 +43,11 @@ const Modal = ({
 
   return (
     <div className="c-wrapper-modal" show={show} ref={refModal}>
-      <div className={`content-modal ${className}`}>
+      <div className={`content-modal ${className}`}
+        style={{
+          height: height,
+        }}
+      >
         {children}
         <div className="footer-modal">
           {!hideButtonCancel && (

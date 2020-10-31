@@ -28,8 +28,7 @@ class PerfilUsuario extends React.Component {
     
     const { children } = this.props
 
-    const localObjName = JSON.parse(localStorage.getItem("jwt"))
-    // console.log('localObjName', localObjName)
+    const localObjName = localStorage.getItem("jwt") ? JSON.parse(localStorage.getItem("jwt")) : {}
 
     const decode = jwt_decode(localObjName.token)
 

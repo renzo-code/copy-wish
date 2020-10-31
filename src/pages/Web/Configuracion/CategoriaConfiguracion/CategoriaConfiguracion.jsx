@@ -69,21 +69,22 @@ class CategoriaConfiguracion extends React.Component {
           onClick={this.abrirModal}
         />
         <Tabla
-          frame="50px 150px 100px 70px"
           dataCabecera={dataCategoria}
+          width="500px"
+          gridTemplateColumns="1fr 2fr 1.3fr 1fr"
         >
           {
             listarCategoria.map((item,i) =>{
               return(
                 <div
-                  className="cont-items-listar"
+                  // className="cont-items-listar"
+                  className="t-row"
                   key={i}
-                  style={{ gridTemplateColumns: "50px 150px 100px 70px" }}
                 >
-                  <div className="items-listar">{item.id_categoria}</div>
-                  <div className="items-listar">{item.categoria}</div>
-                  <div className="items-listar ultimo-item">{item.estado}</div>
-                  <div className="item-btn-editar-marca">
+                  <div>{item.id_categoria}</div>
+                  <div>{item.categoria}</div>
+                  <div>{item.estado}</div>
+                  <div>
                     <Button
                       name="Editar"
                       className="btn-editar-marca"

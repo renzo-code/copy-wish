@@ -305,10 +305,11 @@ class ModalRegistro extends React.Component {
       <div>
         <Modal
           show={show}
-          className="middle"
+          className="middle scroller"
           onClose={onClose}
           nameButton="Registrar"
           onClick={this.validarUsuario}
+          height="80%"
         >
           <h2 className="registrar-usuario">REGISTRAR USUARIO</h2>
           <Input

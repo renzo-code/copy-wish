@@ -95,22 +95,22 @@ class MarcaConfiguracion extends React.Component{
           />
         </div>
         <Tabla
-          frame="50px 150px 100px 130px 70px"
           dataCabecera={dataMarca}
+          width="500px"
+          gridTemplateColumns=".5fr 1.5fr 1fr 2fr 1fr"
         >
           {
             this.props.obtenerMarca.map((item, i) => {
               return(
                 <div
-                  className="cont-items-listar"
+                  className="t-row"
                   key={i}
-                  style={{ gridTemplateColumns: "50px 150px 100px 130px 70px"}}
                 >
-                  <div className="items-listar">{item.id_marca}</div>
-                  <div className="items-listar">{item.marca}</div>
-                  <div className="items-listar">{item.estado}</div>
-                  <div className="items-listar ultimo-item">{item.categoria}</div>
-                  <div className="item-btn-editar-marca">
+                  <div>{item.id_marca}</div>
+                  <div>{item.marca}</div>
+                  <div>{item.estado}</div>
+                  <div >{item.categoria}</div>
+                  <div>
                     <Button
                       name="Editar"
                       className="btn-editar-marca"

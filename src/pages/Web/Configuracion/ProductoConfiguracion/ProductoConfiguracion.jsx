@@ -96,25 +96,25 @@ import './ProductoConfiguracion.scss'
           />
         </div>
           <Tabla
-            frame="50px 150px 120px 150px 90px 120px 90px 80px"
             dataCabecera={dataCabeceraProducto}
+            width="750px"
+            gridTemplateColumns=".5fr 1.5fr .8fr 1.5fr .6fr 1fr .5fr 1fr"
           >
             {
               listProducto.map((item, i) => {
                 return(
                   <div
-                    className="cont-items-listar"
+                    className="t-row"
                     key={i}
-                    style={{ gridTemplateColumns: "50px 150px 120px 150px 90px 120px 90px 80px" }}
                   >
-                    <div className="items-listar">{item.id_producto}</div>
-                    <div className="items-listar">{item.nombre}</div>
-                    <div className="items-listar">{item.precio}</div>
-                    <div className="items-listar">{item.categoria}</div>
-                    <div className="items-listar">{item.estado}</div>
-                    <div className="items-listar">{item.marca}</div>
-                    <div className="items-listar ultimo-item">{item.stock}</div>
-                    <div className="item-btn-editar-producto">
+                    <div >{item.id_producto}</div>
+                    <div >{item.nombre}</div>
+                    <div >{item.precio}</div>
+                    <div >{item.categoria}</div>
+                    <div >{item.estado}</div>
+                    <div >{item.marca}</div>
+                    <div>{item.stock}</div>
+                    <div>
                       <Button
                         className="btn-editar-producto"
                         name="Editar"

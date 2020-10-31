@@ -64,19 +64,19 @@ class PagoConTarjeta extends React.Component {
           </div>
           <div className="container-tabla-tarjeta">
             <Tabla
-              frame="50px 70px"
+              gridTemplateColumns="1fr 1fr"
+              width="200px"
               dataCabecera={dataCabeceraTarjeta}
             >
               {
                 listTarjeta.map((item,i) => {
                   return(
                     <div
-                      className="cont-items-listar"
+                      className="t-row"
                       key={i}
-                      style={{ gridTemplateColumns: "50px 70px"}}
                       >
-                      <div className="items-listar">{item.id_tarjeta_usuario}</div>
-                      <div className="items-listar ultimo-item">
+                      <div>{item.id_tarjeta_usuario}</div>
+                      <div>
                         <Button
                           name="Editar"
                           className="btn-editar-marca"
