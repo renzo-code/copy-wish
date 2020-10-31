@@ -92,6 +92,7 @@ import './ProductoConfiguracion.scss'
           />
           <Button
             name="Nuevo producto"
+            className="button-p"
             onClick={this.abrirModal}
           />
         </div>
