@@ -23,15 +23,9 @@ export const httpGet = async (page, id) => {
 
 export const httpPost = async (page, params) => {
   try {
-    if (page === '/user') {
     const response = await axios.post(page, params)
-
     return response.data
-  } else {
-    const response = await axios.post(page, params)
-
-    return response.data
-  }
+  
   } catch (error) {
     throw new Error(error)
   }

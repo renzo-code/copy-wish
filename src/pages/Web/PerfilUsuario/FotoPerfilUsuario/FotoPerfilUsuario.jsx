@@ -9,7 +9,6 @@ import { edit as editarFotoPefil } from '../../../../actions/fotoPerfil/edit'
 import './FotoPerfilUsuarioStyle.scss'
 
 const localObjUsuario = JSON.parse(localStorage.getItem("jwt"))
-console.log('localObjUsuario',localObjUsuario)
 
 class FotoPerfilUsuario extends React.Component {
   state={
@@ -40,22 +39,29 @@ class FotoPerfilUsuario extends React.Component {
 
   guardarImagen = () => {
     const {
-      base64,
+      // base64,
       guardarFiles
     } = this.state
-    
+
     const {
       putFotoPerfil
     } = this.props
 
-    const formData = new FormData()
-    formData.append("file", guardarFiles)
-    formData.append("base64", base64)
-    formData.append("idUsuario", localObjUsuario.reply.id_usuario)
-    formData.append("size", guardarFiles.size)
+    // const formData = new FormData()
+    // formData.append("file", guardarFiles)
+    // formData.append("base64", base64)
+    // formData.append("idUsuario", localObjUsuario.reply.id_usuario)
+    // formData.append("size", guardarFiles.size)
 
-    console.log('dataFotoPerfil', guardarFiles)
-    putFotoPerfil(formData)
+    const req = {
+      "file": guardarFiles,
+      // "base64": base64,
+      "idUsuario": localObjUsuario.reply.id_usuario,
+      "size": guardarFiles.size
+    }
+
+    console.log('dataFotoPerfil', req)
+    putFotoPerfil(req)
   }
 
   render(){
@@ -85,6 +91,7 @@ class FotoPerfilUsuario extends React.Component {
                 <Button
                   name="Guardar Imagen"
                   onClick={this.guardarImagen}
+                  // disabled={}
                 />
               </div>
             </div>

@@ -11,6 +11,7 @@ import categoria from './categoria'
 import marca from './marca'
 import fotoPerfil from './fotoPerfil'
 import pagoTarjeta from './pagoTarjeta'
+import producto from './producto'
 
 
 
@@ -25,5 +26,6 @@ export default combineReducers({
   categoria,
   marca,
   fotoPerfil,
-  pagoTarjeta
+  pagoTarjeta,
+  producto
 })

@@ -55,36 +55,40 @@ class PagoConTarjeta extends React.Component {
       <div className="master-pago-tarjeta">
         <h2 className="title-registrar-tarjeta">Registrar Tarjeta</h2>
         <div className="container-registro-tarjeta">
-          <Button
-            name="Agregar"
-            className="btn-agregar-tarjeta"
-            onClick={this.abrirModal}
-          />
-          <Tabla
-            frame="50px 70px"
-            dataCabecera={dataCabeceraTarjeta}
-          >
-            {
-              listTarjeta.map((item,i) => {
-                return(
-                  <div
-                  className="cont-items-listar"
-                    key={i}
-                    style={{ gridTemplateColumns: "50px 70px"}}
-                    >
-                    <div className="items-listar">{item.id_tarjeta_usuario}</div>
-                    <div className="items-listar ultimo-item">
-                      <Button
-                        name="Editar"
-                        className="btn-editar-marca"
-                        onClick={() => this.capturarItemTarjeta(item)}
-                      />
+          <div className="cont-btn-agregar-tarjeta">
+            <Button
+              name="Agregar"
+              className="btn-agregar-tarjeta"
+              onClick={this.abrirModal}
+            />
+          </div>
+          <div className="container-tabla-tarjeta">
+            <Tabla
+              frame="50px 70px"
+              dataCabecera={dataCabeceraTarjeta}
+            >
+              {
+                listTarjeta.map((item,i) => {
+                  return(
+                    <div
+                      className="cont-items-listar"
+                      key={i}
+                      style={{ gridTemplateColumns: "50px 70px"}}
+                      >
+                      <div className="items-listar">{item.id_tarjeta_usuario}</div>
+                      <div className="items-listar ultimo-item">
+                        <Button
+                          name="Editar"
+                          className="btn-editar-marca"
+                          onClick={() => this.capturarItemTarjeta(item)}
+                        />
+                      </div>
                     </div>
-                  </div>
-                )
-              })
-            }
-          </Tabla>
+                  )
+                })
+              }
+            </Tabla>
+          </div>
           {
             estadoModal &&
             <ModalPagoConTarjeta

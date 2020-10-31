@@ -1,32 +1,32 @@
-import { httpPost } from '../../utils'
+import { httpPut } from '../../utils'
 
 export function error(error) {
   return {
-    type: 'FOTO_PERFIL_EDIT_ERROR',
+    type: 'PRODUCTO_EDIT_ERROR',
     error
   }
 }
 
 export function loading(loading) {
   return {
-    type : 'FOTO_PERFIL_EDIT_LOADING',
+    type: 'PRODUCTO_ERDIT_LOADING',
     loading
   }
 }
 
 export function success(data) {
   return {
-    type: 'FOTO_PERFIL_EDIT_SUCCESS',
+    type: 'PRODUCTO_EDIT_SUCCESS',
     data
   }
 }
 
-export function edit(obj, page='/usuario-img-perfil'){
+export function edit(obj, page = '/producto'){
   return(dispatch) => {
     dispatch(loading(true))
     dispatch(error(null))
 
-    httpPost(page,obj)
+    httpPut(page, obj)
     .then((data) => {
       dispatch(loading(true))
       dispatch(success(data.reply))
@@ -35,5 +35,11 @@ export function edit(obj, page='/usuario-img-perfil'){
       dispatch(loading(false))
       dispatch(error(e))
     })
+  }
+}
+
+export function reset() {
+  return {
+    type: 'PRODUCTO_EDIT_RESET'
   }
 }

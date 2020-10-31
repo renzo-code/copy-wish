@@ -63,7 +63,8 @@ class MarcaConfiguracion extends React.Component{
   render(){
     // console.log('objEditarMarca', this.state.objEditarMarca)
     // console.log('getMarca', this.props.getMarca)
-    
+
+      const { estadoModal } = this.state
       const { obtenerCategoria, getMarca } = this.props
 
       const optionsCategoria = obtenerCategoria.map((obj)=> {
@@ -122,10 +123,10 @@ class MarcaConfiguracion extends React.Component{
           }
         </Tabla>
         {
-          this.state.estadoModal &&
+          estadoModal &&
           <ModalMarca
             onClose={this.cerrarModal}
-            show={this.state.estadoModal}
+            show={estadoModal}
             objEditarMarca={this.state.objEditarMarca}
             getMarca={getMarca}
           />

@@ -9,7 +9,7 @@ import logo from '../../Images/logo.svg'
 import BlockOptions from '../../components/BlockOptions/BlockOptions'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faBell, faShoppingCart, faHeart, faHome, faCogs } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faBell, faShoppingCart, faHeart, faHome, faCogs, faPager } from '@fortawesome/free-solid-svg-icons'
 import {  } from '@fortawesome/free-brands-svg-icons'
 
 class Header extends React.Component {
@@ -17,9 +17,15 @@ class Header extends React.Component {
 
   }
 
-  redireccionar = () => {
-    this.props.history.push(`/perfil-usuario`)
+  redireccionarMetodoPago = () => {
+    this.props.history.push(`/metodo-pago`)
   }
+
+  redireccionarPerfil = () => {
+    const { history } = this.props
+    history.push(`/perfil-usuario`)
+  }
+
 
   render(){
     const localObj = JSON.parse(localStorage.getItem("jwt"))
@@ -41,7 +47,7 @@ class Header extends React.Component {
             <div className="options-icon-user">
               <div
                 className="container-perfil"
-                onClick={this.redireccionar}
+                onClick={this.redireccionarPerfil}
               >
                 <div className="options-icon-perfil">
                   <FontAwesomeIcon icon={faUser} />
@@ -59,11 +65,15 @@ class Header extends React.Component {
                 to="/configuracion/categoria"
                 titleLink="Configuración"
               />
-              <BlockOptions
-                icon={faHome}
-                to="/metodo-pago"
-                titleLink="Métodos de pago"
-              />
+              <div
+                onClick={this.redireccionarMetodoPago}
+              >
+                <BlockOptions
+                  icon={faPager}
+                  to="/metodo-pago"
+                  titleLink="Métodos de pago"
+                />
+              </div>
               <BlockOptions
                 icon={faHome}
                 titleLink="Option 3"

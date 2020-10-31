@@ -202,11 +202,11 @@ class ModalPagoConTarjeta extends React.Component {
             />
             {
               !isEmpty(objEditarTarjeta) &&
-            <Button
-              name="ver"
-              className="btn-mostrar-cvc"
-              onClick={this.verCVC}
-            />
+              <Button
+                name="ver"
+                className="btn-mostrar-cvc"
+                onClick={this.verCVC}
+              />
             }
           </div>
         </Modal>

@@ -2,19 +2,32 @@
 }
 .container-registro-tarjeta{
   height: 400px;
-  width: 700px;
+  width: 100%;
   // background-color: red;
   margin: auto;
+  // display: flex;
+  // justify-content: center;
 }
 .title-registrar-tarjeta{
   font-size: 25px;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  margin: 10px 0;
+  margin: 30px 0 10px 0;
 }
-
 .btn-agregar-tarjeta{
-  width: 150px;
+  width: 120px;
+  height: 40px;
   font-size: 18px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+.cont-btn-agregar-tarjeta{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.container-tabla-tarjeta{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
 }

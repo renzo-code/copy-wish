@@ -1,7 +1,7 @@
   import React from 'react'
   import { Switch, Route, Redirect } from 'react-router-dom'
 
-  import Layout from '../../layout/'
+  import Layout from '../../layout'
   import Local from './Local/Local'
   import Popular from './Popular/Popular'
   import Ofertas from './Ofertas/Ofertas'
