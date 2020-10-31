@@ -204,7 +204,7 @@ class PerfilUsuario extends React.Component {
               className="title-input-perfil"
               onChange={this.inputChange}
               name="inputFechaNacimiento"
-              value={(inputFechaNacimiento).substring(0,10)}
+              value={inputFechaNacimiento ? (inputFechaNacimiento).substring(0,10) : ''}
               placeholder="Fecha de nacimiento"
               disabled={true}
             />
