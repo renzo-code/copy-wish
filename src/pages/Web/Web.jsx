@@ -18,7 +18,7 @@ const Pages = () => {
         <Route
           exact
           path="/"
-          render={()=> <Redirect to='/popular' />}
+          render={()=> <Redirect to='/login' />}
         />
         <Route path="/local" component={Local}/>
         <Route path="/popular" component={Popular}/>
